@@ -44,9 +44,14 @@ You can find almost anything: clothes, electronics, books, figures, video games,
 
   <p>
     <strong>Referral code:</strong>
-    <span style="font-size:1.2em; background:#fff3cd; padding:4px 8px;">
-      DYFSAM
-    </span>
+  <div class="referral-box">
+  <span id="referral-code">DYFSAM</span>
+  <button onclick="copyCode()">Copy</button>
+</div>
+<p id="copy-msg" style="display:none; font-size:0.85em; color:green;">
+✔ Code copied to clipboard
+</p>
+
   </p>
 
   <p style="font-size:0.9em; color:#555;">
@@ -142,6 +147,18 @@ Independent guide – not affiliated with Mercari
 <p style="font-size:0.8em; color:#666;">
 This site is independent. Some links or codes may be part of official programs.
 </p>
+<script>
+function copyCode() {
+  const code = document.getElementById("referral-code").innerText;
+  navigator.clipboard.writeText(code).then(() => {
+    const msg = document.getElementById("copy-msg");
+    msg.style.display = "block";
+    setTimeout(() => {
+      msg.style.display = "none";
+    }, 2000);
+  });
+}
+</script>
 
 </body>
 </html>
