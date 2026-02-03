@@ -41,9 +41,14 @@ On y trouve de tout : vêtements, électronique, livres, figurines, jeux vidéo,
   </p>
 <p>
 <strong>Code de parrainage :</strong>
-<span style="font-size:1.2em; background:#fff3cd; padding:4px 8px;">
-DYFSAM
-</span>
+<div class="referral-box">
+  <span id="referral-code">DYFSAM</span>
+  <button onclick="copyCode()">Copier</button>
+</div>
+<p id="copy-msg" style="display:none; font-size:0.85em; color:green;">
+✔ Code copié dans le presse-papiers
+</p>
+
 </p>
 
   <p style="font-size:0.9em; color:#555;">
@@ -141,8 +146,19 @@ Guide indépendant – non affilié à Mercari
 Ce site est indépendant. Certains liens ou codes peuvent faire partie de programmes officiels.
 </p>
 
+<script>
+function copyCode() {
+  const code = document.getElementById("referral-code").innerText;
+  navigator.clipboard.writeText(code).then(() => {
+    const msg = document.getElementById("copy-msg");
+    msg.style.display = "block";
+    setTimeout(() => {
+      msg.style.display = "none";
+    }, 2000);
+  });
+}
+</script>
 
 
 </body>
 </html>
-
